@@ -1,6 +1,9 @@
 package spring5_webmvc_study.config;
 
+import org.springframework.context.MessageSource;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -28,4 +31,13 @@ public class MvcConfig implements WebMvcConfigurer {
 	public void addViewControllers(ViewControllerRegistry registry) { 
 	registry.addViewController("/main").setViewName("main"); //메인부르면 컨트롤러 거치지 말고 바로 메인 호출시켜준다!! main.jsp는 register안 말고, view안에 바로 만들기
 	}
+	
+	@Bean	//messag패키지에 속한 label 프로퍼티 파일로부터 메시지를 읽어 온당
+	public MessageSource messageSource() {//빈의 아이디를 반드시 messageSource로 지정해야함. 그래야 resoursece 폴더에서 메세지 찾아온다.
+		ResourceBundleMessageSource ms = new ResourceBundleMessageSource();
+		ms.setBasename("message.label");
+		ms.setDefaultEncoding("UTF-8");
+			return ms;
+	}
+	
 }

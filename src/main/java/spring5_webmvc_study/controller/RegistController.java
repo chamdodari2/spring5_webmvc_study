@@ -22,11 +22,11 @@ public class RegistController {
 	}
 
 	@PostMapping("/register/step2") // 요부분 안적어줘서 에러떴당
-	public String handleStep2(@RequestParam(value = "agree", defaultValue = "false") Boolean agree, Model model) {	// jsp파일에서  작성한value name이 agree 인 애 
+	public String handleStep2(@RequestParam(value = "agree", defaultValue = "false") Boolean agree, RegisterRequest registerRequest) {	// jsp파일에서  작성한value name이 agree 인 애 
 		if (!agree) {// 동의안했으면 step1 화면 다시 호출 -> 매핑
 			return "register/step1";
 		}
-		model.addAttribute("registerRequest", new RegisterRequest()); // 동의체크했으면 step2화면 호출 -> 매핑
+		//model.addAttribute("registerRequest", new RegisterRequest()); // 동의체크했으면 step2화면 호출 -> 매핑
 
 		return "register/step2";
 	}
