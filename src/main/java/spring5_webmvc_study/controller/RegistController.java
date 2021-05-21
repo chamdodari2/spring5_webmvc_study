@@ -2,7 +2,6 @@ package spring5_webmvc_study.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,7 +36,7 @@ public class RegistController {
 	}
 
 	@PostMapping("/register/step3")
-	public String handleStep3(@ModelAttribute("formData") RegisterRequest regReq) {
+	public String handleStep3(RegisterRequest regReq) {//@ModelAttribute("formData") 이거 지워줬당
 		System.out.println(regReq);
 		// return "";
 
