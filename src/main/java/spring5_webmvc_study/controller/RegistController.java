@@ -2,8 +2,8 @@ package spring5_webmvc_study.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,14 +36,21 @@ public class RegistController {
 	}
 
 	@PostMapping("/register/step3")
-	public String handleStep3(RegisterRequest regReq) {//@ModelAttribute("formData") 이거 지워줬당
+	public String handleStep3(RegisterRequest regReq, Errors errors) {//@ModelAttribute("formData") 이거 지워줬당
+		//커맨드 객체 (즉, RegisterRequest 객체) 검증
+		new RegisterRequestValidator().validate(regReq, errors);
+		
+		if(errors.hasErrors())
+			return"register/step2";  //에러있으면 화면 이동시킨다음에,
+		
 		System.out.println(regReq);
 		// return "";
 
 		try {
-			memberRegisterService.regist(regReq);
+			memberRegisterService.regist(regReq); 
 			return "register/step3";
-		} catch (DuplicateMemberException ex) {
+		} catch (DuplicateMemberException ex) {  //이메일 중복되면? 원래는 그냥 화면띄워줬는데 errors 메세지 띄워준다
+			errors.reject("email","duplicate");
 			return "register/step2";
 		}
 	}

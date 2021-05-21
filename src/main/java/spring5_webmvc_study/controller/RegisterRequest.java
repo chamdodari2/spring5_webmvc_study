@@ -37,7 +37,7 @@ public class RegisterRequest {
 	public void setName(String name) {
 		this.name=name;
 	}
-	public boolean isPasswordEqualToConformPassword() {
+	public boolean isPasswordEqualToConfirmPassword() {
 		return password.contentEquals(confirmPassword);
 	}
 
