@@ -4,7 +4,7 @@
 
 <!DOCTYPE html> 
 <html> 
-<head><title>><spring:message code="member.register"/></title></head> 
+<head><title><spring:message code="member.register"/></title></head> 
 <body> 
 
 <spring:message code="register.done">
