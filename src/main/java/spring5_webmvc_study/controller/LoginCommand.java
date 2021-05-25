@@ -28,4 +28,5 @@ public class LoginCommand { //로그인 폼에 입력한 값을 전달받기 위
 	public void setRememberEmail(boolean rememberEmail) {
 		this.rememberEmail = rememberEmail;
 	}
+	
 }

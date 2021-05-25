@@ -9,3 +9,4 @@
 	pattern = "yyyy-MM-dd";
 %>
 <%=DateTimeFormatter.ofPattern(pattern).format(value)%>
+
