@@ -49,10 +49,10 @@ public class MemberConfig {
 	}
 
 	
-	@Bean
-	public MemberDao memberDao() {
-		return new MemberDao(dataSource());
-	}
+//	@Bean
+//	public MemberDao memberDao() {
+//		return new MemberDao(dataSource());
+//	}
 	
 	
 	@Bean
@@ -80,16 +80,16 @@ public class MemberConfig {
 	}
 	
 	
-	@Bean
-	public MemberRegisterService memberRegSvc() {
-		return new MemberRegisterService(memberDao());
-	}
-	@Bean
-	public ChangePasswordService changePwdSvc() {
-		ChangePasswordService pwdSvc = new ChangePasswordService();
-		pwdSvc.setMemberDao(memberDao());
-		return pwdSvc;
-	}
+//	@Bean
+//	public MemberRegisterService memberRegSvc() {
+//		return new MemberRegisterService(memberDao());
+//	}
+//	@Bean
+//	public ChangePasswordService changePwdSvc() {
+//		ChangePasswordService pwdSvc = new ChangePasswordService();
+//		pwdSvc.setMemberDao(memberDao());
+//		return pwdSvc;
+//	}
 	
 	
 
