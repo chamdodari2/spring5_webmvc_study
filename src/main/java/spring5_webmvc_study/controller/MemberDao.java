@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
+
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -18,6 +20,11 @@ public class MemberDao {
 
 	private JdbcTemplate jdbcTemplate;
 
+	//일정기간에 가입한 회원 검색
+	public List<Member> selectByRegdate(LocalDateTime from, LocalDateTime to){
+		String sql = "select * from member where regdate between ? and ? order by regdate desc";
+		return jdbcTemplate.query(sql, new MemberRowMapper(), from , to);
+		}
 
 
 	public MemberDao(DataSource dataSource) {

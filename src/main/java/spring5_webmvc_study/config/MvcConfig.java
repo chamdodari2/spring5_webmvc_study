@@ -50,9 +50,10 @@ public class MvcConfig implements WebMvcConfigurer {
 	}
 	
 	@Bean
-	private AuthCheckInterceptor authCheckInterceptor() {
+	public AuthCheckInterceptor authCheckInterceptor() {
 		return new AuthCheckInterceptor();
 	}
+	
 	
 	
 	

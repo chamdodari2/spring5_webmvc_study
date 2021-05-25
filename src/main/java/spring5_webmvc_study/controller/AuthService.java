@@ -2,8 +2,10 @@ package spring5_webmvc_study.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 @Component
+@Service
 public class AuthService {
 	
 	@Autowired
