@@ -17,6 +17,8 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
+import com.sun.org.apache.xalan.internal.xsltc.compiler.Template;
+
 @Component
 public class MemberDao {
 	private JdbcTemplate jdbcTemplate;
@@ -40,6 +42,14 @@ public class MemberDao {
 		}
 	};
 
+	//가입기간별 회원조회에서 링크 클릭시 상세보기 (아이디로 조회)
+	public Member selectById(Long memId) {
+		String sql = "select * from member where id = ?";
+		List<Member> results = jdbcTemplate.query(sql,memberRowMapper,memId);
+		return results.isEmpty()? null:results.get(0);
+	}
+	
+	
 	//일정기간에 가입한 회원 조회
     public List<Member> selectByRegdate(LocalDateTime from, LocalDateTime to){
         String sql = "select * from member where regdate between ? and ? order by regdate desc";
