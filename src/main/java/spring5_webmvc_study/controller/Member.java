@@ -2,17 +2,14 @@ package spring5_webmvc_study.controller;
 
 import java.time.LocalDateTime;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 public class Member {
 	
 	private Long id;
 	private String email;
-	@JsonIgnore
+//	@JsonIgnore
 	private String password;
 	private String name;
-	@JsonFormat(pattern = "yyyyMMddHHmmss")
+//	@JsonFormat(pattern = "yyyyMMddHHmmss")
 	private LocalDateTime registerDateTime;
 	
 	
