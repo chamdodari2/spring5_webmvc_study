@@ -17,7 +17,6 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
-import com.sun.org.apache.xalan.internal.xsltc.compiler.Template;
 
 @Component
 public class MemberDao {
